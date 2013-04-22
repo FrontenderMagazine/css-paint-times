@@ -152,7 +152,7 @@ tips to get started:
 - Use Chrome’s [Continuous Paint mode][10] in Chrome Dev Tools to get an
 understanding of what CSS properties are costing you.
 - Incorporate CSS reviews into your existing code review process to catch 
-performance issues Look for places in your CSS where you are using things 
+performance issues. Look for places in your CSS where you are using things 
 that are known to be more expensive, like gradients and shadows. Ask 
 yourself, do I really need these here?
 - When in doubt, always err on the side of better performance. Your users 

@@ -109,7 +109,7 @@ beta][9] showing off all the full set of timing data from this process. Note
 that all data is subject to change as Chrome becomes faster and faster with
 time.
 
-<!-- Image here -->
+[![](img/thumbs/cssTimesDetail.jpg)](img/cssTimesDetail.jpg)
 
 Each vertical bar represents the paint-time of a page with a single
 combination of CSS properties, (magnified by 100x; True-scale value of this
@@ -121,21 +121,21 @@ to render than others**. For example, drawing a drop-shadow on a DOM element
 involves a multi-pass operation with splines and other sorts of nasty things,
 as opposed to opacity which should be easier to render.
 
-<!-- Image here -->
+[![](img/thumbs/cssTimesSingles.jpg)](img/cssTimesSingles.jpg)
 
 Secondly, and more interestingly, **combinations of CSS Properties can have a
 greater paint time than the sum of their parts**. From an observer’s
 perspective, this is a bit odd, we’d expect that A+B = C, not 2.2C. For
 example adding `box-shadow` and `border-radius-stroke`:
 
-<!-- Image here -->
+![](img/xfigure2.jpg)
 
 **What’s really interesting about this, is that it’s not just the `box-shadow`
 property itself, but rather that specific value *permutation***. For example,
 below shows a grouping of `box-shadow: 50%` and `border-radius` with value
 variations.
 
-<!-- Image here -->
+![](img/xfigure3.jpg)
 
 Looking at the data, this goes on for a while. There’s lots of various odd
 combinations, and my test suite hardly touches them all; there’s still tons of

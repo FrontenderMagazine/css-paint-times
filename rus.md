@@ -1,3 +1,5 @@
+# Время отрисовки CSS-свойств
+
 ## Содержание
 - [Введение](#introduction)
 - [Философский вопрос](#the-philosophical-question)

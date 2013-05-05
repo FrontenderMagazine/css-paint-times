@@ -1,3 +1,5 @@
+# CSS Paint Times and Page Render Weight
+
 ## Table of contents
 - [Introduction](#introduction)
 - [The philosophical question](#the-philosophical-question)
@@ -13,12 +15,12 @@ here.
 <a id="introduction"></a>
 # Introduction
 
-If you’re the type of person who keeps up with things like 
-[how browsers work][1], then you already know that there’s been some amazing 
-articles lately detailing Chrome’s GPU accelerated renderer/composite 
-operation. Firstly [Accelerated Rendering in Chrome: The Layer Model][2] is 
-a great introduction to how Chrome uses the concept of layers to draw their 
-page; and for a deeper dive [GPU Accelerated Compositing in Chrome][3] 
+If you’re the type of person who keeps up with things like
+[how browsers work][1], then you already know that there’s been some amazing
+articles lately detailing Chrome’s GPU accelerated renderer/composite
+operation. Firstly [Accelerated Rendering in Chrome: The Layer Model][2] is
+a great introduction to how Chrome uses the concept of layers to draw their
+page; and for a deeper dive [GPU Accelerated Compositing in Chrome][3]
 discusses how Chrome uses these layers, alongside the GPU for rendering your page.
 
 > The quick version of these articles is that the hardware accelerated path in
@@ -44,14 +46,14 @@ are more performant than others. To do this, I wrote some automation with
 duct-tape and bubble gum to attempt to add numerical visibility to CSS paint
 times, which worked like this:
 
-- Generate a suite of individual HTML pages; each one with a single DOM 
+- Generate a suite of individual HTML pages; each one with a single DOM
 element and some permutation of CSS properties attached to it.
 - Run some automation script that, for each page, will:
   - Launch Chrome
   - Load a page
   - Produce a [Skia Picture][6] for the page
   - Run each Skia Picture taken through [Skia Benchmark][6] to obtain timings
-- Dump out all the timings, and marvel at the numbers. (This part is 
+- Dump out all the timings, and marvel at the numbers. (This part is
 important...)
 
 > Chrome’s software rasterizer package is called [SKIA][7], and it not only
@@ -68,9 +70,9 @@ files:
     <style>
     #example1 {
         background: url(foo.png) top left / 50% 60%;
-        padding: 20px; 
+        padding: 20px;
         margin-top: 10px;
-        margin-right: 20px; 
+        margin-right: 20px;
         text-align: center;
     }
     </style>
@@ -84,9 +86,9 @@ And another, that’s more complex:
         box-shadow: 1px 2px 3px 4px black;
         border-radius: 50%;
         background: radial-gradient(circle closest-corner, white, black);
-        padding: 20px; 
+        padding: 20px;
         margin-top: 10px;
-        margin-right: 20px; 
+        margin-right: 20px;
         text-align: center;
     }
     </style>
@@ -151,12 +153,12 @@ tips to get started:
 
 - Use Chrome’s [Continuous Paint mode][10] in Chrome Dev Tools to get an
 understanding of what CSS properties are costing you.
-- Incorporate CSS reviews into your existing code review process to catch 
-performance issues. Look for places in your CSS where you are using things 
-that are known to be more expensive, like gradients and shadows. Ask 
+- Incorporate CSS reviews into your existing code review process to catch
+performance issues. Look for places in your CSS where you are using things
+that are known to be more expensive, like gradients and shadows. Ask
 yourself, do I really need these here?
-- When in doubt, always err on the side of better performance. Your users 
-may not remember what the padding width is on your columns, but they will 
+- When in doubt, always err on the side of better performance. Your users
+may not remember what the padding width is on your columns, but they will
 remember how it feels to visit your site.
 
 > Unfortunately, without a custom timing setup like the one built, it’s
